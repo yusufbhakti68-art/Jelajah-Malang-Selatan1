@@ -2312,42 +2312,24 @@ const defaultWisataData = [
         const SECTION_BG_LEGACY_KEYS = { home: 'jms_home_hero_background', umkm: 'jms_umkm_hero_background', wisata: 'jms_wisata_hero_background', event: 'jms_event_hero_background' };
         const SECTION_BG_TARGETS = { home: 'home-hero-background', umkm: 'umkm-hero-background', wisata: 'wisata-hero-background', event: 'event-hero-background' };
         const SECTION_BG_DEFAULTS = {
-            home: [
-                        './assets/Beranda1.png',
-                        './assets/Beranda2.png',
-                        './assets/Beranda3.png'
-            ], umkm: [], wisata: [], event: [] };
+            home: ['assets/Beranda1.png', 'assets/Beranda2.png', 'assets/Beranda3.png'],
+            umkm: ['assets/umkm1.jpeg', 'assets/umkm2.jpeg', 'assets/umkm3.jpeg'],
+            wisata: [],
+            event: ['assets/tradisi1.jpeg', 'assets/tradisi2.jpeg']
+        };
         const pendingSectionBackgrounds = { home: [], umkm: [], wisata: [], event: [] };
         const sectionBackgroundIndexes = { home: 0, umkm: 0, wisata: 0, event: 0 };
         const sectionBackgroundTimers = { home: null, umkm: null, wisata: null, event: null };
 
         function getSectionBackgrounds(section) {
-                try {
-                    const raw = localStorage.getItem(SECTION_BG_KEYS[section]);
-            
-                    if (raw) {
-                        const parsed = JSON.parse(raw);
-            
-                        if (Array.isArray(parsed) && parsed.length) {
-                            return parsed.filter(
-                                x => typeof x === 'string' && x
-                            );
-                        }
-                    }
-            
-                    const legacy = localStorage.getItem(
-                        SECTION_BG_LEGACY_KEYS[section]
-                    );
-            
-                    if (legacy) return [legacy];
-            
-                    return SECTION_BG_DEFAULTS[section] || [];
-            
-                } catch (error) {
-                    console.error('Gagal membaca foto background:', error);
-                    return SECTION_BG_DEFAULTS[section] || [];
-                }
-            }
+            try {
+                const raw = localStorage.getItem(SECTION_BG_KEYS[section]);
+                if (raw) { const parsed = JSON.parse(raw); if (Array.isArray(parsed)) return parsed.filter(x => typeof x === 'string' && x); }
+                const legacy = localStorage.getItem(SECTION_BG_LEGACY_KEYS[section]);
+                if (legacy) return [legacy];
+                return SECTION_BG_DEFAULTS[section] || [];
+            } catch (_) { return []; }
+        }
         function applySectionBackgroundImage(section, image) {
             const target = document.getElementById(SECTION_BG_TARGETS[section]);
             const preview = document.getElementById(section + '-bg-preview');
@@ -2383,7 +2365,7 @@ const defaultWisataData = [
                 setSectionBackgrounds(section, images);
                 const urlInput = document.getElementById(section + '-bg-url');
                 const fileInput = document.getElementById(section + '-bg-file');
-                if (urlInput) urlInput.value = images.filter(x => !x.startsWith('data:')).join('\n');
+                if (urlInput) urlInput.value = images.filter(x => /^https?:\/\//i.test(x)).join('\n');
                 if (fileInput) fileInput.value = '';
             });
         }
@@ -2411,9 +2393,10 @@ const defaultWisataData = [
             if (urls.length > 10) { showToast('Maksimal 10 URL foto per halaman.','error'); return; }
             for (const url of urls) { try { const parsed = new URL(url); if (!['http:','https:'].includes(parsed.protocol)) throw new Error(); } catch (_) { showToast('Pastikan setiap URL foto memakai HTTP/HTTPS dan satu URL per baris.','error'); return; } }
             const uploaded = pendingSectionBackgrounds[section].filter(x=>x.startsWith('data:'));
-            const images = [...uploaded, ...urls].filter((x,i,a)=>a.indexOf(x)===i).slice(0,10);
+            const customImages = [...uploaded, ...urls].filter((x,i,a)=>a.indexOf(x)===i).slice(0,10);
+            const images = customImages.length ? customImages : (SECTION_BG_DEFAULTS[section] || []);
             try {
-                if (images.length) localStorage.setItem(SECTION_BG_KEYS[section], JSON.stringify(images)); else localStorage.removeItem(SECTION_BG_KEYS[section]);
+                if (customImages.length) localStorage.setItem(SECTION_BG_KEYS[section], JSON.stringify(customImages)); else localStorage.removeItem(SECTION_BG_KEYS[section]);
                 localStorage.removeItem(SECTION_BG_LEGACY_KEYS[section]);
                 setSectionBackgrounds(section, images);
                 showToast(({home:'Foto Beranda',umkm:'Foto UMKM',wisata:'Foto Wisata',event:'Foto Event'})[section] + ' berhasil disimpan.','success');
@@ -2424,7 +2407,7 @@ const defaultWisataData = [
             localStorage.removeItem(SECTION_BG_KEYS[section]); localStorage.removeItem(SECTION_BG_LEGACY_KEYS[section]);
             const fileInput=document.getElementById(section+'-bg-file'); if(fileInput) fileInput.value='';
             const urlInput=document.getElementById(section+'-bg-url'); if(urlInput) urlInput.value='';
-            setSectionBackgrounds(section, []); showToast('Foto background default berhasil dipulihkan.','success');
+            setSectionBackgrounds(section, SECTION_BG_DEFAULTS[section] || []); showToast('Foto background bawaan berhasil dipulihkan.','success');
         }
 
         // WEB SCRAPER: hanya mengambil HTML publik yang dapat diakses; tidak melewati login, paywall, atau proteksi situs.
@@ -2547,4 +2530,12 @@ const defaultWisataData = [
             }
         }
 
-        document.addEventListener('DOMContentLoaded', () => { loadBannerContentSettings(); });
+        document.addEventListener('DOMContentLoaded', () => {
+            loadBannerContentSettings();
+            // Terapkan slideshow foto bawaan hanya pada banner Beranda, UMKM, dan Event.
+            // Banner Wisata & Desa tetap menggunakan tampilan semula.
+            ['home', 'umkm', 'event'].forEach(section => {
+                const images = getSectionBackgrounds(section);
+                setSectionBackgrounds(section, images, true);
+            });
+        });

@@ -2322,13 +2322,32 @@ const defaultWisataData = [
         const sectionBackgroundTimers = { home: null, umkm: null, wisata: null, event: null };
 
         function getSectionBackgrounds(section) {
-            try {
-                const raw = localStorage.getItem(SECTION_BG_KEYS[section]);
-                if (raw) { const parsed = JSON.parse(raw); if (Array.isArray(parsed)) return parsed.filter(x => typeof x === 'string' && x); }
-                const legacy = localStorage.getItem(SECTION_BG_LEGACY_KEYS[section]);
-                return legacy ? [legacy] : [];
-            } catch (_) { return []; }
-        }
+                try {
+                    const raw = localStorage.getItem(SECTION_BG_KEYS[section]);
+            
+                    if (raw) {
+                        const parsed = JSON.parse(raw);
+            
+                        if (Array.isArray(parsed) && parsed.length) {
+                            return parsed.filter(
+                                x => typeof x === 'string' && x
+                            );
+                        }
+                    }
+            
+                    const legacy = localStorage.getItem(
+                        SECTION_BG_LEGACY_KEYS[section]
+                    );
+            
+                    if (legacy) return [legacy];
+            
+                    return SECTION_BG_DEFAULTS[section] || [];
+            
+                } catch (error) {
+                    console.error('Gagal membaca foto background:', error);
+                    return SECTION_BG_DEFAULTS[section] || [];
+                }
+            }
         function applySectionBackgroundImage(section, image) {
             const target = document.getElementById(SECTION_BG_TARGETS[section]);
             const preview = document.getElementById(section + '-bg-preview');

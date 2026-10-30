@@ -43,6 +43,115 @@
     </script>
     
     <link rel="stylesheet" href="style.css">
+    <style> body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .traffic-banner-layout { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 1rem; }
+        .traffic-ticker-viewport { overflow: hidden; min-width: 0; width: 100%; display: flex; align-items: center; justify-content: center; }
+        .traffic-ticker-track { display: flex; width: max-content; align-items: center; gap: 3rem; white-space: nowrap; }
+        .traffic-ticker-track:not(.is-moving) { width: 100%; justify-content: center; text-align: center; }
+        .traffic-ticker-track.is-moving { animation: trafficTickerMove 32s linear infinite; }
+        .traffic-ticker-track.is-moving:hover { animation-play-state: paused; }
+        .traffic-ticker-copy { display: inline-flex; align-items: center; gap: 3rem; padding-right: 3rem; }
+        @keyframes trafficTickerMove { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        @media (max-width: 767px) { .traffic-banner-layout { grid-template-columns: minmax(0, 1fr); gap: .5rem; } .traffic-banner-icon { display: none; } .traffic-banner-actions { justify-content: center; flex-wrap: wrap; } .traffic-ticker-track:not(.is-moving) { white-space: normal; } }
+        @media (prefers-reduced-motion: reduce) { .traffic-ticker-track.is-moving { animation: none; } }
+
+
+/* ===== Admin: Kelola Kecamatan ===== */
+#admin-content-kecamatan .kecamatan-delete-btn {
+    transition: background-color .2s ease, transform .2s ease;
+}
+#admin-content-kecamatan .kecamatan-delete-btn:hover {
+    transform: translateY(-1px);
+}
+#admin-content-kecamatan #kecamatan-admin-form input {
+    min-width: 0;
+    outline: none;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+#admin-content-kecamatan #kecamatan-admin-form input:focus {
+    border-color: #0284c7;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, .12);
+}
+#admin-content-kecamatan table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+#admin-content-kecamatan thead th:first-child {
+    border-top-left-radius: .65rem;
+}
+#admin-content-kecamatan thead th:last-child {
+    border-top-right-radius: .65rem;
+}
+#admin-nav-tabs .admin-tab-btn,
+#admin-nav-tabs #adm-tab-kecamatan {
+    flex: 0 0 auto;
+}
+@media (max-width: 640px) {
+    #admin-content-kecamatan > div {
+        padding: 1rem;
+    }
+    #admin-content-kecamatan #kecamatan-admin-form button {
+        width: 100%;
+    }
+}
+
+/* Admin: pengelolaan kartu promo Beranda */
+#admin-content-promoberanda input, #admin-content-promoberanda textarea { min-width: 0; outline: none; transition: border-color .2s, box-shadow .2s; }
+#admin-content-promoberanda input:focus, #admin-content-promoberanda textarea:focus { border-color: #0284c7; box-shadow: 0 0 0 3px rgba(2,132,199,.12); }
+#admin-content-promoberanda section { min-width: 0; }
+.home-promo-card { background-size: cover; background-position: center; }
+@media (max-width: 640px) { #admin-content-promoberanda > div { padding: 1rem; } }
+
+/* Navigasi pagination untuk grid wisata dan produk UMKM */
+.pagination-btn {
+    min-width: 38px;
+    height: 38px;
+    padding: 0 11px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #334155;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+}
+.pagination-btn:hover:not(:disabled) {
+    background: #e0f2fe;
+    border-color: #0284c7;
+    color: #075985;
+    transform: translateY(-1px);
+}
+.pagination-btn.active {
+    background: #036b8f;
+    border-color: #036b8f;
+    color: #ffffff;
+    box-shadow: 0 3px 8px rgba(3, 105, 161, .2);
+}
+.pagination-btn:disabled {
+    opacity: .35;
+    cursor: not-allowed;
+}
+.pagination-ellipsis {
+    padding: 0 3px;
+    color: #64748b;
+    font-weight: 700;
+}
+@media (max-width: 480px) {
+    .pagination-btn { min-width: 34px; height: 34px; padding: 0 8px; }
+}
+
+/* Upload dan preview foto kartu promo beranda */
+.promo-image-preview { width: 100%; max-height: 180px; object-fit: cover; border-radius: 10px; border: 1px solid #cbd5e1; }
+#admin-content-promoberanda input[type="file"] { max-width: 100%; }
+.home-promo-card { background-size: cover !important; background-position: center !important; }
+</style>
     
 </head>
 <body class="text-slate-800 antialiased min-h-screen flex flex-col justify-between">
@@ -139,19 +248,13 @@
         
         <!-- SECTION 1: BERANDA -->
         <section id="view-beranda" class="tab-view">
-            <div id="home-hero-background" class="relative bg-coastal-900 text-white overflow-hidden py-16 md:py-24 px-4 sm:px-6 lg:px-8">
-                <!-- Background slideshow: foto berganti otomatis di belakang teks hero -->
-                <div id="home-hero-slides" class="absolute inset-0" aria-hidden="true">
-                    <img src="assets/Beranda1.png" alt="" class="home-hero-slide absolute inset-0 w-full h-full object-cover opacity-100 transition-opacity duration-1000">
-                    <img src="assets/Beranda2.png" alt="" class="home-hero-slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
-                    <img src="assets/Beranda3.png" alt="" class="home-hero-slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
-                </div>
-                <div class="absolute inset-0 z-[1] bg-slate-950/55"></div>
-                <div class="absolute z-[2] -right-10 -bottom-20 opacity-20 pointer-events-none">
+            <div id="home-hero-background" class="relative bg-gradient-to-r from-coastal-900 via-coastal-600 to-nature-600 text-white overflow-hidden py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+                <div class="absolute inset-0 bg-black/20 mix-blend-multiply"></div>
+                <div class="absolute -right-10 -bottom-20 opacity-20 pointer-events-none">
                     <i class="fa-solid fa-umbrella-beach text-[300px]"></i>
                 </div>
                 
-                <div class="relative z-10 max-w-7xl mx-auto text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="relative max-w-7xl mx-auto text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-8">
                     <div class="max-w-2xl">
                         <span class="inline-block px-3.5 py-1.5 rounded-full bg-sand-500/20 border border-sand-500/40 text-sand-500 font-semibold text-xs uppercase tracking-wider mb-4">
                             <i class="fa-solid fa-compass mr-1"></i> Portal Wisata Resmi Malang Selatan
@@ -192,127 +295,6 @@
                     </div>
                 </div>
             </div>
-
-            <script>
-                // Slideshow foto background banner utama Beranda
-                (() => {
-                    const hero = document.getElementById('home-hero-background');
-                    const slideBox = document.getElementById('home-hero-slides');
-                    if (!hero || !slideBox || hero.dataset.slideshowReady === 'true') return;
-
-                    hero.dataset.slideshowReady = 'true';
-                    const slides = Array.from(slideBox.querySelectorAll('.home-hero-slide'));
-                    if (slides.length < 2) return;
-
-                    let active = 0;
-                    let intervalId;
-
-                    const showNextHeroImage = () => {
-                        slides[active].classList.remove('opacity-100');
-                        slides[active].classList.add('opacity-0');
-                        active = (active + 1) % slides.length;
-                        slides[active].classList.remove('opacity-0');
-                        slides[active].classList.add('opacity-100');
-                    };
-
-                    const startHeroSlideshow = () => {
-                        window.clearInterval(intervalId);
-                        intervalId = window.setInterval(showNextHeroImage, 5000);
-                    };
-
-                    hero.addEventListener('mouseenter', () => window.clearInterval(intervalId));
-                    hero.addEventListener('mouseleave', startHeroSlideshow);
-                    startHeroSlideshow();
-                })();
-            </script>
-
-            <!-- GALERI FOTO BERANDA: SLIDESHOW OTOMATIS -->
-            <section id="home-photo-gallery" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
-                <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2 mb-5">
-                    <div>
-                        <span class="text-coastal-500 font-bold text-xs tracking-wider uppercase">Galeri Destinasi</span>
-                        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Keindahan Malang Selatan</h2>
-                    </div>
-                    <p class="text-sm text-slate-500">Jelajahi pesona pantai dan alam pesisir.</p>
-                </div>
-
-                <div id="home-gallery-slider" class="relative overflow-hidden rounded-2xl shadow-lg bg-slate-100"
-                     aria-roledescription="carousel" aria-label="Galeri foto Malang Selatan">
-                    <div class="relative h-64 sm:h-80 md:h-[440px]">
-                        <img class="home-gallery-slide absolute inset-0 w-full h-full object-cover opacity-100 transition-opacity duration-700"
-                             src="assets/Beranda1.png" alt="Pemandangan jembatan dan laut tropis" loading="eager">
-                        <img class="home-gallery-slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700"
-                             src="assets/Beranda2.png" alt="Panorama pantai tropis saat senja" loading="lazy">
-                        <img class="home-gallery-slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700"
-                             src="assets/Beranda3.png" alt="Keindahan alam Malang Selatan" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent pointer-events-none"></div>
-                    </div>
-
-                    <button type="button" id="home-gallery-prev" aria-label="Foto sebelumnya"
-                            class="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/45 hover:bg-black/70 text-white text-2xl flex items-center justify-center transition">
-                        &#8249;
-                    </button>
-                    <button type="button" id="home-gallery-next" aria-label="Foto berikutnya"
-                            class="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/45 hover:bg-black/70 text-white text-2xl flex items-center justify-center transition">
-                        &#8250;
-                    </button>
-
-                    <div class="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-2">
-                        <button type="button" class="home-gallery-dot w-2.5 h-2.5 rounded-full bg-white ring-2 ring-white/70" aria-label="Tampilkan foto 1" aria-current="true"></button>
-                        <button type="button" class="home-gallery-dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white" aria-label="Tampilkan foto 2" aria-current="false"></button>
-                        <button type="button" class="home-gallery-dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white" aria-label="Tampilkan foto 3" aria-current="false"></button>
-                    </div>
-                </div>
-                <p class="text-center text-xs text-slate-500 mt-2">Foto berganti otomatis setiap 4 detik. Gunakan tombol panah untuk menggeser.</p>
-            </section>
-
-            <script>
-                (() => {
-                    const slider = document.getElementById('home-gallery-slider');
-                    if (!slider || slider.dataset.initialized === 'true') return;
-                    slider.dataset.initialized = 'true';
-
-                    const slides = Array.from(slider.querySelectorAll('.home-gallery-slide'));
-                    const dots = Array.from(slider.querySelectorAll('.home-gallery-dot'));
-                    const prev = document.getElementById('home-gallery-prev');
-                    const next = document.getElementById('home-gallery-next');
-                    let current = 0;
-                    let timer;
-
-                    function showSlide(index) {
-                        current = (index + slides.length) % slides.length;
-                        slides.forEach((slide, i) => {
-                            slide.classList.toggle('opacity-100', i === current);
-                            slide.classList.toggle('opacity-0', i !== current);
-                            slide.setAttribute('aria-hidden', i !== current ? 'true' : 'false');
-                        });
-                        dots.forEach((dot, i) => {
-                            dot.classList.toggle('bg-white', i === current);
-                            dot.classList.toggle('bg-white/50', i !== current);
-                            dot.setAttribute('aria-current', i === current ? 'true' : 'false');
-                        });
-                    }
-
-                    function stopAutoSlide() {
-                        if (timer) window.clearInterval(timer);
-                    }
-                    function startAutoSlide() {
-                        stopAutoSlide();
-                        timer = window.setInterval(() => showSlide(current + 1), 4000);
-                    }
-
-                    prev.addEventListener('click', () => { showSlide(current - 1); startAutoSlide(); });
-                    next.addEventListener('click', () => { showSlide(current + 1); startAutoSlide(); });
-                    dots.forEach((dot, i) => dot.addEventListener('click', () => { showSlide(i); startAutoSlide(); }));
-                    slider.addEventListener('mouseenter', stopAutoSlide);
-                    slider.addEventListener('mouseleave', startAutoSlide);
-                    slider.addEventListener('focusin', stopAutoSlide);
-                    slider.addEventListener('focusout', startAutoSlide);
-
-                    showSlide(0);
-                    startAutoSlide();
-                })();
-            </script>
 
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 relative z-10">
                 <div class="bg-white rounded-2xl p-4 shadow-md border border-slate-200/60">
@@ -1462,6 +1444,8 @@
     <!-- TOAST NOTIFICATION -->
     <div id="toast-container" class="fixed bottom-5 right-5 z-[10000] flex flex-col gap-2"></div>
 
+
+    
     <!-- JAVASCRIPT LOGIC -->
     <script src="script.js"></script>
 

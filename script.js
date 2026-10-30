@@ -2313,9 +2313,9 @@ const defaultWisataData = [
         const SECTION_BG_TARGETS = { home: 'home-hero-background', umkm: 'umkm-hero-background', wisata: 'wisata-hero-background', event: 'event-hero-background' };
         const SECTION_BG_DEFAULTS = {
             home: [
-                        './assets/Beranda1.jpg',
-                        './assets/Beranda2.jpg',
-                        './assets/Beranda3.jpg'
+                        './assets/Beranda1.png',
+                        './assets/Beranda2.png',
+                        './assets/Beranda3.png'
             ], umkm: [], wisata: [], event: [] };
         const pendingSectionBackgrounds = { home: [], umkm: [], wisata: [], event: [] };
         const sectionBackgroundIndexes = { home: 0, umkm: 0, wisata: 0, event: 0 };

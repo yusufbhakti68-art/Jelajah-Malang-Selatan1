@@ -187,7 +187,7 @@
                 </div>
             </div>
 
-            <!-- GALERI FOTO BERANDA -->
+            <!-- GALERI FOTO BERANDA: SLIDESHOW OTOMATIS -->
             <section id="home-photo-gallery" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
                 <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2 mb-5">
                     <div>
@@ -196,18 +196,84 @@
                     </div>
                     <p class="text-sm text-slate-500">Jelajahi pesona pantai dan alam pesisir.</p>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                    <figure class="group overflow-hidden rounded-2xl shadow-md bg-slate-100">
-                        <img src="assets/Beranda1.png" alt="Pemandangan jembatan dan laut tropis" loading="lazy" class="w-full h-56 sm:h-64 object-cover transition duration-500 group-hover:scale-105">
-                    </figure>
-                    <figure class="group overflow-hidden rounded-2xl shadow-md bg-slate-100">
-                        <img src="assets/Beranda2.png" alt="Panorama pantai tropis saat senja" loading="lazy" class="w-full h-56 sm:h-64 object-cover transition duration-500 group-hover:scale-105">
-                    </figure>
-                    <figure class="group overflow-hidden rounded-2xl shadow-md bg-slate-100">
-                        <img src="assets/Beranda3.png" alt="Keindahan alam Malang Selatan" loading="lazy" class="w-full h-56 sm:h-64 object-cover transition duration-500 group-hover:scale-105">
-                    </figure>
+
+                <div id="home-gallery-slider" class="relative overflow-hidden rounded-2xl shadow-lg bg-slate-100"
+                     aria-roledescription="carousel" aria-label="Galeri foto Malang Selatan">
+                    <div class="relative h-64 sm:h-80 md:h-[440px]">
+                        <img class="home-gallery-slide absolute inset-0 w-full h-full object-cover opacity-100 transition-opacity duration-700"
+                             src="assets/Beranda1.png" alt="Pemandangan jembatan dan laut tropis" loading="eager">
+                        <img class="home-gallery-slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700"
+                             src="assets/Beranda2.png" alt="Panorama pantai tropis saat senja" loading="lazy">
+                        <img class="home-gallery-slide absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700"
+                             src="assets/Beranda3.png" alt="Keindahan alam Malang Selatan" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent pointer-events-none"></div>
+                    </div>
+
+                    <button type="button" id="home-gallery-prev" aria-label="Foto sebelumnya"
+                            class="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/45 hover:bg-black/70 text-white text-2xl flex items-center justify-center transition">
+                        &#8249;
+                    </button>
+                    <button type="button" id="home-gallery-next" aria-label="Foto berikutnya"
+                            class="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/45 hover:bg-black/70 text-white text-2xl flex items-center justify-center transition">
+                        &#8250;
+                    </button>
+
+                    <div class="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-2">
+                        <button type="button" class="home-gallery-dot w-2.5 h-2.5 rounded-full bg-white ring-2 ring-white/70" aria-label="Tampilkan foto 1" aria-current="true"></button>
+                        <button type="button" class="home-gallery-dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white" aria-label="Tampilkan foto 2" aria-current="false"></button>
+                        <button type="button" class="home-gallery-dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white" aria-label="Tampilkan foto 3" aria-current="false"></button>
+                    </div>
                 </div>
+                <p class="text-center text-xs text-slate-500 mt-2">Foto berganti otomatis setiap 4 detik. Gunakan tombol panah untuk menggeser.</p>
             </section>
+
+            <script>
+                (() => {
+                    const slider = document.getElementById('home-gallery-slider');
+                    if (!slider || slider.dataset.initialized === 'true') return;
+                    slider.dataset.initialized = 'true';
+
+                    const slides = Array.from(slider.querySelectorAll('.home-gallery-slide'));
+                    const dots = Array.from(slider.querySelectorAll('.home-gallery-dot'));
+                    const prev = document.getElementById('home-gallery-prev');
+                    const next = document.getElementById('home-gallery-next');
+                    let current = 0;
+                    let timer;
+
+                    function showSlide(index) {
+                        current = (index + slides.length) % slides.length;
+                        slides.forEach((slide, i) => {
+                            slide.classList.toggle('opacity-100', i === current);
+                            slide.classList.toggle('opacity-0', i !== current);
+                            slide.setAttribute('aria-hidden', i !== current ? 'true' : 'false');
+                        });
+                        dots.forEach((dot, i) => {
+                            dot.classList.toggle('bg-white', i === current);
+                            dot.classList.toggle('bg-white/50', i !== current);
+                            dot.setAttribute('aria-current', i === current ? 'true' : 'false');
+                        });
+                    }
+
+                    function stopAutoSlide() {
+                        if (timer) window.clearInterval(timer);
+                    }
+                    function startAutoSlide() {
+                        stopAutoSlide();
+                        timer = window.setInterval(() => showSlide(current + 1), 4000);
+                    }
+
+                    prev.addEventListener('click', () => { showSlide(current - 1); startAutoSlide(); });
+                    next.addEventListener('click', () => { showSlide(current + 1); startAutoSlide(); });
+                    dots.forEach((dot, i) => dot.addEventListener('click', () => { showSlide(i); startAutoSlide(); }));
+                    slider.addEventListener('mouseenter', stopAutoSlide);
+                    slider.addEventListener('mouseleave', startAutoSlide);
+                    slider.addEventListener('focusin', stopAutoSlide);
+                    slider.addEventListener('focusout', startAutoSlide);
+
+                    showSlide(0);
+                    startAutoSlide();
+                })();
+            </script>
 
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 relative z-10">
                 <div class="bg-white rounded-2xl p-4 shadow-md border border-slate-200/60">

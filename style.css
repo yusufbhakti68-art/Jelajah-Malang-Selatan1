@@ -1,4 +1,4 @@
- body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
@@ -106,3 +106,12 @@
 .promo-image-preview { width: 100%; max-height: 180px; object-fit: cover; border-radius: 10px; border: 1px solid #cbd5e1; }
 #admin-content-promoberanda input[type="file"] { max-width: 100%; }
 .home-promo-card { background-size: cover !important; background-position: center !important; }
+
+/* Pengaturan tampilan banner foto bawaan */
+#home-hero-background,
+#umkm-hero-background,
+#event-hero-background {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}

@@ -2311,7 +2311,12 @@ const defaultWisataData = [
         const SECTION_BG_KEYS = { home: 'jms_home_hero_backgrounds', umkm: 'jms_umkm_hero_backgrounds', wisata: 'jms_wisata_hero_backgrounds', event: 'jms_event_hero_backgrounds' };
         const SECTION_BG_LEGACY_KEYS = { home: 'jms_home_hero_background', umkm: 'jms_umkm_hero_background', wisata: 'jms_wisata_hero_background', event: 'jms_event_hero_background' };
         const SECTION_BG_TARGETS = { home: 'home-hero-background', umkm: 'umkm-hero-background', wisata: 'wisata-hero-background', event: 'event-hero-background' };
-        const SECTION_BG_DEFAULTS = { home: [], umkm: [], wisata: [], event: [] };
+        const SECTION_BG_DEFAULTS = {
+            home: [
+                        './assets/beranda-1.jpg',
+                        './assets/beranda-2.jpg',
+                        './assets/beranda-3.jpg'
+            ], umkm: [], wisata: [], event: [] };
         const pendingSectionBackgrounds = { home: [], umkm: [], wisata: [], event: [] };
         const sectionBackgroundIndexes = { home: 0, umkm: 0, wisata: 0, event: 0 };
         const sectionBackgroundTimers = { home: null, umkm: null, wisata: null, event: null };

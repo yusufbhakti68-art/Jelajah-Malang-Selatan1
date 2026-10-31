@@ -6,7 +6,7 @@ const defaultWisataData = [
                 kategori: "Pantai",
                 harga: "Rp 15.000",
                 jam: "24 Jam",
-                img: "assets/WIsata1.jpeg",
+                img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
                 desc: "Dikenal sebagai Tanah Lot-nya Jawa Timur. Memiliki Pura Ismoyo di atas pulau karang kecil.",
                 maps: "https://maps.google.com/?q=Pantai+Balekambang+Malang",
                 isUnggulan: true,
@@ -19,7 +19,7 @@ const defaultWisataData = [
                 kategori: "Konservasi",
                 harga: "Rp 10.000 + Guide",
                 jam: "07.00 - 16.00 WIB",
-                img: "assets/WIsata2.jpeg",
+                img: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80",
                 desc: "Kawasan konservasi mangrove dan terumbu karang dengan gradasi air laut 3 warna.",
                 maps: "https://maps.google.com/?q=Pantai+3+Warna+Malang",
                 isUnggulan: true,
@@ -32,7 +32,7 @@ const defaultWisataData = [
                 kategori: "Pantai",
                 harga: "Rp 10.000",
                 jam: "24 Jam",
-                img: "assets/WIsata3.jpeg",
+                img: "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=800&q=80",
                 desc: "Sering disebut Raja Ampat-nya Malang karena gugusan pulau karang kecil.",
                 maps: "https://maps.google.com/?q=Teluk+Asmara+Malang",
                 isUnggulan: true,
@@ -45,7 +45,7 @@ const defaultWisataData = [
                 kategori: "Pantai",
                 harga: "Rp 10.000",
                 jam: "06.00 - 18.00 WIB",
-                img: "assets/WIsata1.jpeg",
+                img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
                 desc: "Pantai di ujung barat dengan perbukitan Paralayang tempat sunset terbaik.",
                 maps: "https://maps.google.com/?q=Pantai+Modangan+Malang",
                 isUnggulan: false,
@@ -58,7 +58,7 @@ const defaultWisataData = [
                 kategori: "Pantai",
                 harga: "Rp 10.000",
                 jam: "24 Jam",
-                img: "assets/WIsata2.jpeg",
+                img: "https://images.unsplash.com/photo-1509233725247-49e657c54213?auto=format&fit=crop&w=800&q=80",
                 desc: "Surga bagi pecinta selancar dan perahu wisata air terjun langsung ke laut.",
                 maps: "https://maps.google.com/?q=Pantai+Lenggoksono+Malang",
                 isUnggulan: false,
@@ -71,7 +71,7 @@ const defaultWisataData = [
                 kategori: "Konservasi",
                 harga: "Rp 12.000",
                 jam: "24 Jam",
-                img: "assets/WIsata3.jpeg",
+                img: "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=800&q=80",
                 desc: "Pelabuhan nelayan terbesar berhadapan dengan Cagar Alam Pulau Sempu.",
                 maps: "https://maps.google.com/?q=Pantai+Sendangbiru+Malang",
                 isUnggulan: false,
@@ -81,70 +81,79 @@ const defaultWisataData = [
             {
                 "id": "u7",
                 "nama": "Pantai Licin",
-                "kategori": "Pantai",
+                "kategori": "Kuliner & Oleh-Oleh",
                 "desa": "Kab Malang",
                 "wa": "6281333183380",
                 "img": "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=600&q=80",
-                "desc": "Pantai Licin menawarkan suasana pesisir yang tenang dengan panorama laut dan garis pantai yang cocok untuk menikmati keindahan alam."
+                "desc": "Kuliner lezat di daerah Kab Malang"
             },
             {
                 "id": "u8",
                 "nama": "Pantai Sendiki",
-                "kategori": "Pantai",
+                "kategori": "Kuliner & Oleh-Oleh",
                 "desa": "Kab Malang",
                 "wa": "-",
                 "img": "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=600&q=80",
-                "desc": "Pantai Sendiki dikenal dengan hamparan pasir dan suasana alami yang nyaman untuk bersantai serta menikmati pemandangan pantai."
+                "desc": "Kuliner lezat di daerah Kab Malang"
             },
             {
                 "id": "u9",
                 "nama": "Pantai Tamban",
-                "kategori": "Pantai",
+                "kategori": "Kuliner & Oleh-Oleh",
                 "desa": "Kab Malang",
                 "wa": "-",
                 "img": "https://www.tempatwisata.pro/users_media/3092/gomancing-ngalam-tournamet-pantai-tamban-malang-jawa-timur-1024x681.jpg",
-                "desc": "Pantai Tamban menyuguhkan panorama laut lepas dan suasana pesisir yang menarik untuk menikmati waktu liburan."
+                "desc": "Kuliner lezat di daerah Kab Malang"
             },
             {
                 "id": "u10",
                 "nama": "Pantai Banyu Meneng",
-                "kategori": "Pantai",
+                "kategori": "Kuliner & Oleh-Oleh",
                 "desa": "Kab Malang",
                 "wa": "-",
                 "img": "https://ik.imagekit.io/tvlk/blog/2024/05/shutterstock_1921198601.jpg?tr=dpr-2%2Cw-675",
-                "desc": "Pantai Banyu Meneng memiliki suasana pantai yang relatif teduh dan cocok untuk bersantai menikmati alam pesisir."
+                "desc": "Kuliner lezat di daerah Kab Malang"
             },
             {
                 "id": "u11",
                 "nama": "Pantai Gatra",
-                "kategori": "Pantai",
+                "kategori": "Kuliner & Oleh-Oleh",
                 "desa": "Kab Malang",
                 "wa": "-",
                 "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
-                "desc": "Pantai Gatra berada di kawasan konservasi dengan pemandangan alam pesisir yang asri dan suasana yang menenangkan."
+                "desc": "Kuliner lezat di daerah Kab Malang"
+            },
+            {
+                "id": "u12",
+                "nama": "Toko taman ayu nganteb (TAN)",
+                "kategori": "Kuliner & Oleh-Oleh",
+                "desa": "Kab Malang",
+                "wa": "6282147548421",
+                "img": "https://cdngnfi2.sgp1.cdn.digitaloceanspaces.com/gnfi/uploads/images/2024/01/1813522024-WhatsApp-Image-2024-01-18-at-13.49.52.jpg",
+                "desc": "Pusat belanja makanan dan oleh-oleh khas daerah Nganteb, Malang."
             },
             {
                 "id": "u13",
                 "nama": "Pantai Mrutu",
-                "kategori": "Pantai",
+                "kategori": "Kuliner & Oleh-Oleh",
                 "desa": "Kab Malang",
                 "wa": "-",
                 "img": "https://1.bp.blogspot.com/-dnFixAJ4o8g/XbhLe3izdHI/AAAAAAAAALg/mLsvBoJBth0utl5prYl90fKW6gGH5_f5gCLcBGAsYHQ/s1600/Laut%2BBiru%2Bdan%2BOmbak%2BTenang%2Bdi%2BPantai%2BMrutu.jpg",
-                "desc": "Pantai Mrutu menyajikan panorama pantai yang alami dan suasana tenang bagi pengunjung yang ingin menikmati keindahan pesisir."
+                "desc": "Kuliner lezat di daerah Kab Malang"
             },
             {
                 "id": "u14",
                 "nama": "Pantai Jolangkung ꦥꦼꦱꦶꦱꦶꦂꦗꦺꦴꦭꦔ꧀ꦏꦸꦁ",
-                "kategori": "Pantai",
+                "kategori": "Kuliner & Oleh-Oleh",
                 "desa": "Kab Malang",
                 "wa": "-",
                 "img": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80",
-                "desc": "Pantai Jolangkung menawarkan pemandangan laut khas pesisir selatan dengan suasana alam yang menarik untuk dijelajahi."
+                "desc": "Kuliner lezat di daerah Kab Malang"
             },
             {
                 "id": "u15",
                 "nama": "Pantai Wedi Awu",
-                "kategori": "Pantai",
+                "kategori": "Kuliner & Oleh-Oleh",
                 "desa": "Kab Malang",
                 "wa": "6281333183380",
                 "img": "https://assets.promediateknologi.id/crop/0x0%3A0x0/750x500/webp/photo/p3/27/2024/01/16/Pantai-Wedi-Awu-Malang_exploremalangraya-991708302.jpg",
@@ -153,11 +162,11 @@ const defaultWisataData = [
             {
                 "id": "u16",
                 "nama": "Pantai Kondang Iwak",
-                "kategori": "Pantai",
+                "kategori": "Kuliner & Oleh-Oleh",
                 "desa": "Kab Malang",
                 "wa": "-",
                 "img": "https://sp-ao.shortpixel.ai/client/to_webp%2Cq_glossy%2Cret_img%2Cw_1000%2Ch_675/https%3A/blog.airpaz.com/wp-content/uploads/kondang-iwak_11zon_11zon.webp",
-                "desc": "Pantai Wedi Awu dikenal dengan ombak dan bentang alam pesisir yang menarik, terutama bagi pencinta aktivitas pantai."
+                "desc": "Kuliner lezat di daerah Kab Malang"
             }
         
         ];
@@ -383,6 +392,16 @@ const defaultWisataData = [
         let umkmList = [];
         let kategoriList = [];
         let eventList = [];
+        const DEFAULT_ROAD_CLOSURES = [
+            {
+                id: "r3",
+                area: "Jalur Wisata Malang Selatan",
+                title: "Imbauan keselamatan perjalanan: periksa kondisi kendaraan dan patuhi rambu lalu lintas.",
+                road: "Seluruh jalur wisata pesisir Malang Selatan",
+                time: "Setiap saat",
+                detail: "Pastikan rem, ban, dan bahan bakar dalam kondisi baik. Kurangi kecepatan di jalan berkelok serta ikuti arahan petugas."
+            }
+        ];
         let roadClosureList = [];
         let damriData = {};
         let currentAdminRole = null;
@@ -516,11 +535,6 @@ const defaultWisataData = [
             transportButton: 'Cek Jadwal & Tarif', transportBackground: 'linear-gradient(135deg, #164e75, #0369a1)'
         };
         let homePromoImageState = { economy: '', transport: '' };
-        let homePromoRotationTimer = null;
-        const HOME_PROMO_LOCAL_IMAGES = {
-            economy: ['assets/Ekonomi1.jpeg', 'assets/Ekonomi2.jpeg'],
-            transport: ['assets/Damri1.jpeg', 'assets/Damri2.jpeg', 'assets/Damri3.jpeg']
-        };
         function getHomePromoSettings() {
             try { return { ...HOME_PROMO_DEFAULTS, ...(JSON.parse(localStorage.getItem('jms_home_promo_settings') || '{}')) }; }
             catch (_) { return { ...HOME_PROMO_DEFAULTS }; }
@@ -529,27 +543,14 @@ const defaultWisataData = [
             const map = { 'home-promo-economy-label': cfg.economyLabel, 'home-promo-economy-title': cfg.economyTitle, 'home-promo-economy-description': cfg.economyDescription, 'home-promo-economy-button': cfg.economyButton, 'home-promo-transport-label': cfg.transportLabel, 'home-promo-transport-title': cfg.transportTitle, 'home-promo-transport-description': cfg.transportDescription, 'home-promo-transport-button': cfg.transportButton };
             Object.entries(map).forEach(([id, value]) => { const el = document.getElementById(id); if (el) el.textContent = value ?? ''; });
             const cards = document.querySelectorAll('.home-promo-card');
-            const applyBackground = (card, image, fallback) => {
+            const setCardBackground = (card, image, fallback) => {
                 if (!card) return;
                 card.style.background = image
                     ? `linear-gradient(rgba(5, 25, 35, .48), rgba(5, 25, 35, .58)), url("${image}") center / cover no-repeat`
                     : fallback;
             };
-            // Foto pilihan admin tetap diutamakan; jika belum ada, gunakan slideshow file lokal.
-            applyBackground(cards[0], cfg.economyImage || HOME_PROMO_LOCAL_IMAGES.economy[0], cfg.economyBackground || HOME_PROMO_DEFAULTS.economyBackground);
-            applyBackground(cards[1], cfg.transportImage || HOME_PROMO_LOCAL_IMAGES.transport[0], cfg.transportBackground || HOME_PROMO_DEFAULTS.transportBackground);
-            if (homePromoRotationTimer) clearInterval(homePromoRotationTimer);
-            let economyIndex = 0, transportIndex = 0;
-            homePromoRotationTimer = setInterval(() => {
-                if (!cfg.economyImage && cards[0]) {
-                    economyIndex = (economyIndex + 1) % HOME_PROMO_LOCAL_IMAGES.economy.length;
-                    applyBackground(cards[0], HOME_PROMO_LOCAL_IMAGES.economy[economyIndex], cfg.economyBackground || HOME_PROMO_DEFAULTS.economyBackground);
-                }
-                if (!cfg.transportImage && cards[1]) {
-                    transportIndex = (transportIndex + 1) % HOME_PROMO_LOCAL_IMAGES.transport.length;
-                    applyBackground(cards[1], HOME_PROMO_LOCAL_IMAGES.transport[transportIndex], cfg.transportBackground || HOME_PROMO_DEFAULTS.transportBackground);
-                }
-            }, 5000);
+            setCardBackground(cards[0], cfg.economyImage, cfg.economyBackground || HOME_PROMO_DEFAULTS.economyBackground);
+            setCardBackground(cards[1], cfg.transportImage, cfg.transportBackground || HOME_PROMO_DEFAULTS.transportBackground);
         }
         function compressPromoImage(file) {
             return new Promise((resolve, reject) => {
@@ -608,6 +609,8 @@ const defaultWisataData = [
 
         window.onload = function() {
             loadState();
+            // Isi tiga kolom footer saat halaman publik pertama kali dibuka.
+            applyFooterSettings();
             renderKecamatanPills();
             renderFeaturedWisata();
             renderWisataGrid();
@@ -648,14 +651,6 @@ const defaultWisataData = [
                     ][(index + hIndex) % 3]
                 })) : []
             })) : defaultWisataData;
-            // Gunakan foto lokal dari folder assets untuk enam destinasi utama.
-            const wisataLocalImages = {
-                w1: 'assets/WIsata1.jpeg', w2: 'assets/WIsata2.jpeg', w3: 'assets/WIsata3.jpeg',
-                w4: 'assets/WIsata1.jpeg', w5: 'assets/WIsata2.jpeg', w6: 'assets/WIsata3.jpeg'
-            };
-            wisataList = wisataList.map(item => wisataLocalImages[item.id]
-                ? { ...item, img: wisataLocalImages[item.id] }
-                : item);
 
             const savedResorts = localStorage.getItem('jms_resorts');
             resortList = savedResorts ? JSON.parse(savedResorts) : [];
@@ -704,7 +699,7 @@ const defaultWisataData = [
                 }
             ];
             const savedRoadClosures = localStorage.getItem('jms_road_closures');
-            roadClosureList = savedRoadClosures ? JSON.parse(savedRoadClosures) : [];
+            roadClosureList = savedRoadClosures ? JSON.parse(savedRoadClosures) : DEFAULT_ROAD_CLOSURES.map(item => ({ ...item }));
 
             eventList = eventList.map(ev => ({
                 ...ev,
@@ -762,10 +757,9 @@ const defaultWisataData = [
                 return;
             }
             const content = items.map(item => `<span class="inline-flex items-center gap-2"><strong class="text-slate-950">${escapeHtml(item.area.toUpperCase())}</strong><span>${escapeHtml(item.title)}</span><span class="opacity-90">(${escapeHtml(item.road)} · ${escapeHtml(item.time)})</span><span class="text-slate-900">•</span></span>`).join('');
-            // Duplikasi konten agar ticker tetap bergerak dan berulang meskipun hanya ada 1 informasi jalan.
-            // Salinan kedua disembunyikan dari pembaca layar agar tidak dibacakan dua kali.
-            track.className = 'traffic-ticker-track is-moving';
-            track.innerHTML = `<span class="traffic-ticker-copy">${content}</span><span class="traffic-ticker-copy" aria-hidden="true">${content}</span>`;
+            const moving = items.length > 1;
+            track.className = `traffic-ticker-track${moving ? ' is-moving' : ''}`;
+            track.innerHTML = moving ? `<span class="traffic-ticker-copy">${content}</span><span class="traffic-ticker-copy" aria-hidden="true">${content}</span>` : `<span class="traffic-ticker-copy">${content}</span>`;
             timeBadge.innerText = `${items.length} INFORMASI`;
         }
 
@@ -807,7 +801,13 @@ const defaultWisataData = [
 
         // Pagination publik: maksimal sekitar 5 baris pada grid desktop.
         const WISATA_PAGE_SIZE = 15; // 3 kolom x 5 baris
-        const UMKM_PAGE_SIZE = 20;   // 4 kolom x 5 baris
+        // UMKM: maksimal 5 baris per halaman sesuai jumlah kolom grid responsif.
+        function getUmkmPageSize() {
+            const width = window.innerWidth || document.documentElement.clientWidth;
+            const columns = width >= 1280 ? 4 : width >= 1024 ? 3 : width >= 640 ? 2 : 1;
+            return columns * 5;
+        }
+        let lastUmkmPageSize = getUmkmPageSize();
         let wisataCurrentPage = 1;
         let umkmCurrentPage = 1;
         let currentUmkmData = null;
@@ -956,6 +956,20 @@ const defaultWisataData = [
             openModal('modal-wisata-detail');
         }
 
+
+        // Pertahankan posisi produk saat ukuran layar berubah dan jumlah kolom berganti.
+        let umkmResizeTimer = null;
+        window.addEventListener('resize', () => {
+            window.clearTimeout(umkmResizeTimer);
+            umkmResizeTimer = window.setTimeout(() => {
+                const nextPageSize = getUmkmPageSize();
+                if (nextPageSize === lastUmkmPageSize) return;
+                const firstVisibleIndex = Math.max(0, (umkmCurrentPage - 1) * lastUmkmPageSize);
+                umkmCurrentPage = Math.floor(firstVisibleIndex / nextPageSize) + 1;
+                renderUmkmGrid(currentUmkmData || umkmList, false);
+            }, 180);
+        });
+
         function renderUmkmCategoryPills() {
             const activeCategories = kategoriList
                 .filter(k => k.jenis === "UMKM" && (k.isVisible !== false))
@@ -981,10 +995,12 @@ const defaultWisataData = [
             });
             currentUmkmData = dataToRender;
             if (resetPage) umkmCurrentPage = 1;
-            const totalPages = Math.ceil(visibleData.length / UMKM_PAGE_SIZE);
+            const pageSize = getUmkmPageSize();
+            lastUmkmPageSize = pageSize;
+            const totalPages = Math.ceil(visibleData.length / pageSize);
             if (umkmCurrentPage > Math.max(1,totalPages)) umkmCurrentPage = Math.max(1,totalPages);
-            const start = (umkmCurrentPage - 1) * UMKM_PAGE_SIZE;
-            const pageData = visibleData.slice(start, start + UMKM_PAGE_SIZE);
+            const start = (umkmCurrentPage - 1) * pageSize;
+            const pageData = visibleData.slice(start, start + pageSize);
             document.getElementById('umkm-grid').innerHTML = pageData.map(u => `
                 <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
                     <div>
@@ -1005,7 +1021,7 @@ const defaultWisataData = [
                     </div>
                 </div>
             `).join('');
-            renderNumberedPagination('umkm-pagination', visibleData.length, UMKM_PAGE_SIZE, umkmCurrentPage, 'goToUmkmPage');
+            renderNumberedPagination('umkm-pagination', visibleData.length, pageSize, umkmCurrentPage, 'goToUmkmPage');
         }
 
         function applyEventFilters() {
@@ -1599,13 +1615,25 @@ const defaultWisataData = [
             navTitle: 'Navigasi Portal', areaTitle: 'Kecamatan Pesisir', emergencyTitle: 'Layanan Darurat', year: String(new Date().getFullYear()),
             navLinks: "Beranda Utama|beranda\nWisata Pantai & Desa|wisata\nKatalog Produk UMKM|umkm\nAgenda Event Budaya|event\nInformasi Bus DAMRI|damri",
             areas: 'Kecamatan Bantur\nKecamatan Gedangan\nKecamatan Donomulyo\nKecamatan Sumbermanjing Wetan\nKecamatan Tirtoyudo',
-            emergency: 'Pos SAR Sendangbiru: (0341) 801-XXX\nPolsek Bantur / Jalur JLS\nProyek Edukasi Digitalisasi Pariwisata Daerah Kabupaten Malang.',
+            emergency: 'Kontak Layanan: 0822-3011-0110\nNomor Darurat Polisi: 110\nUntuk keadaan darurat, hubungi layanan terkait di wilayah setempat.',
             bottomText: 'Jelajah Malang Selatan – Portal Wisata Terpadu. Seluruh hak cipta dilindungi.',
             bgColor: '#104e70', headingColor: '#f59e0b'
         };
         function getFooterSettings() {
-            try { return { ...FOOTER_DEFAULTS, ...(JSON.parse(localStorage.getItem('jms_footer_settings') || '{}')) }; }
-            catch (_) { return { ...FOOTER_DEFAULTS }; }
+            let saved = {};
+            try {
+                saved = JSON.parse(localStorage.getItem('jms_footer_settings') || '{}') || {};
+            } catch (_) {
+                saved = {};
+            }
+            const cfg = { ...FOOTER_DEFAULTS, ...saved };
+            // Nilai kosong yang tersimpan tidak boleh mengosongkan kolom footer.
+            ['brand', 'description', 'navTitle', 'areaTitle', 'emergencyTitle',
+             'year', 'navLinks', 'areas', 'emergency', 'bottomText', 'bgColor', 'headingColor']
+                .forEach(key => {
+                    if (cfg[key] == null || String(cfg[key]).trim() === '') cfg[key] = FOOTER_DEFAULTS[key];
+                });
+            return cfg;
         }
         function renderFooterSettingsForm() {
             const cfg = getFooterSettings();
@@ -2329,12 +2357,7 @@ const defaultWisataData = [
         const SECTION_BG_KEYS = { home: 'jms_home_hero_backgrounds', umkm: 'jms_umkm_hero_backgrounds', wisata: 'jms_wisata_hero_backgrounds', event: 'jms_event_hero_backgrounds' };
         const SECTION_BG_LEGACY_KEYS = { home: 'jms_home_hero_background', umkm: 'jms_umkm_hero_background', wisata: 'jms_wisata_hero_background', event: 'jms_event_hero_background' };
         const SECTION_BG_TARGETS = { home: 'home-hero-background', umkm: 'umkm-hero-background', wisata: 'wisata-hero-background', event: 'event-hero-background' };
-        const SECTION_BG_DEFAULTS = {
-            home: ['assets/Beranda1.png', 'assets/Beranda2.png', 'assets/Beranda3.png'],
-            umkm: ['assets/umkm1.jpeg', 'assets/umkm2.jpeg', 'assets/umkm3.jpeg'],
-            wisata: [],
-            event: ['assets/tradisi1.jpeg', 'assets/tradisi2.jpeg']
-        };
+        const SECTION_BG_DEFAULTS = { home: [], umkm: [], wisata: [], event: [] };
         const pendingSectionBackgrounds = { home: [], umkm: [], wisata: [], event: [] };
         const sectionBackgroundIndexes = { home: 0, umkm: 0, wisata: 0, event: 0 };
         const sectionBackgroundTimers = { home: null, umkm: null, wisata: null, event: null };
@@ -2344,8 +2367,7 @@ const defaultWisataData = [
                 const raw = localStorage.getItem(SECTION_BG_KEYS[section]);
                 if (raw) { const parsed = JSON.parse(raw); if (Array.isArray(parsed)) return parsed.filter(x => typeof x === 'string' && x); }
                 const legacy = localStorage.getItem(SECTION_BG_LEGACY_KEYS[section]);
-                if (legacy) return [legacy];
-                return SECTION_BG_DEFAULTS[section] || [];
+                return legacy ? [legacy] : [];
             } catch (_) { return []; }
         }
         function applySectionBackgroundImage(section, image) {
@@ -2383,7 +2405,7 @@ const defaultWisataData = [
                 setSectionBackgrounds(section, images);
                 const urlInput = document.getElementById(section + '-bg-url');
                 const fileInput = document.getElementById(section + '-bg-file');
-                if (urlInput) urlInput.value = images.filter(x => /^https?:\/\//i.test(x)).join('\n');
+                if (urlInput) urlInput.value = images.filter(x => !x.startsWith('data:')).join('\n');
                 if (fileInput) fileInput.value = '';
             });
         }
@@ -2411,10 +2433,9 @@ const defaultWisataData = [
             if (urls.length > 10) { showToast('Maksimal 10 URL foto per halaman.','error'); return; }
             for (const url of urls) { try { const parsed = new URL(url); if (!['http:','https:'].includes(parsed.protocol)) throw new Error(); } catch (_) { showToast('Pastikan setiap URL foto memakai HTTP/HTTPS dan satu URL per baris.','error'); return; } }
             const uploaded = pendingSectionBackgrounds[section].filter(x=>x.startsWith('data:'));
-            const customImages = [...uploaded, ...urls].filter((x,i,a)=>a.indexOf(x)===i).slice(0,10);
-            const images = customImages.length ? customImages : (SECTION_BG_DEFAULTS[section] || []);
+            const images = [...uploaded, ...urls].filter((x,i,a)=>a.indexOf(x)===i).slice(0,10);
             try {
-                if (customImages.length) localStorage.setItem(SECTION_BG_KEYS[section], JSON.stringify(customImages)); else localStorage.removeItem(SECTION_BG_KEYS[section]);
+                if (images.length) localStorage.setItem(SECTION_BG_KEYS[section], JSON.stringify(images)); else localStorage.removeItem(SECTION_BG_KEYS[section]);
                 localStorage.removeItem(SECTION_BG_LEGACY_KEYS[section]);
                 setSectionBackgrounds(section, images);
                 showToast(({home:'Foto Beranda',umkm:'Foto UMKM',wisata:'Foto Wisata',event:'Foto Event'})[section] + ' berhasil disimpan.','success');
@@ -2425,7 +2446,7 @@ const defaultWisataData = [
             localStorage.removeItem(SECTION_BG_KEYS[section]); localStorage.removeItem(SECTION_BG_LEGACY_KEYS[section]);
             const fileInput=document.getElementById(section+'-bg-file'); if(fileInput) fileInput.value='';
             const urlInput=document.getElementById(section+'-bg-url'); if(urlInput) urlInput.value='';
-            setSectionBackgrounds(section, SECTION_BG_DEFAULTS[section] || []); showToast('Foto background bawaan berhasil dipulihkan.','success');
+            setSectionBackgrounds(section, []); showToast('Foto background default berhasil dipulihkan.','success');
         }
 
         // WEB SCRAPER: hanya mengambil HTML publik yang dapat diakses; tidak melewati login, paywall, atau proteksi situs.
@@ -2548,12 +2569,4 @@ const defaultWisataData = [
             }
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            loadBannerContentSettings();
-            // Terapkan slideshow foto bawaan hanya pada banner Beranda, UMKM, dan Event.
-            // Banner Wisata & Desa tetap menggunakan tampilan semula.
-            ['home', 'umkm', 'event'].forEach(section => {
-                const images = getSectionBackgrounds(section);
-                setSectionBackgrounds(section, images, true);
-            });
-        });
+        document.addEventListener('DOMContentLoaded', () => { loadBannerContentSettings(); });

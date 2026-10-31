@@ -1,16 +1,79 @@
+
+/* ==========================================================
+   PENGATUR FOTO BANNER WEBSITE
+   Cukup ganti nama file di bawah ini sesuai foto milikmu.
+   Simpan foto di folder: assets/
+   Contoh: assets/banner-wisata.jpg
+   ========================================================== */
+
+:root {
+    /* 1. Foto banner halaman Wisata & Desa */
+    --wisata-banner-image: url("assets/WIsata1.jpeg");
+
+    /* 2. Foto kartu Ekonomi Lokal (warna hijau) */
+    --ekonomi-banner-image: url("assets/Ekonomi1.jpeg");
+
+    /* 3. Foto kartu Transportasi Publik (warna biru) */
+    --transport-banner-image: url("assets/Damri1.jpeg");
+}
+
+/* Banner Wisata: foto + lapisan gelap agar tulisan tetap terbaca */
+.wisata-banner-photo {
+    background-image:
+        linear-gradient(90deg, rgba(6, 78, 59, .78), rgba(12, 74, 110, .48)),
+        var(--wisata-banner-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Kartu Ekonomi Lokal: foto dengan nuansa hijau tetap dipertahankan */
+.home-promo-economy-photo {
+    background-image:
+        linear-gradient(115deg, rgba(6, 95, 70, .88), rgba(5, 150, 105, .62)),
+        var(--ekonomi-banner-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Kartu Transportasi: foto dengan nuansa biru tetap dipertahankan */
+.home-promo-transport-photo {
+    background-image:
+        linear-gradient(115deg, rgba(12, 74, 110, .90), rgba(2, 132, 199, .62)),
+        var(--transport-banner-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Penyesuaian posisi foto untuk layar kecil */
+@media (max-width: 640px) {
+    .wisata-banner-photo,
+    .home-promo-economy-photo,
+    .home-promo-transport-photo {
+        background-position: center;
+    }
+}
+
+
+/* CSS website yang sudah ada di bawah ini */
 body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
-        .traffic-banner-layout { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 1rem; }
-        .traffic-ticker-viewport { overflow: hidden; min-width: 0; width: 100%; display: flex; align-items: center; justify-content: center; }
-        .traffic-ticker-track { display: flex; width: max-content; align-items: center; gap: 3rem; white-space: nowrap; }
+        .traffic-banner-layout { display: flex; flex-wrap: nowrap; align-items: center; gap: 1rem; min-width: 0; }
+        .traffic-ticker-viewport { overflow: hidden; min-width: 0; flex: 1 1 auto; width: 100%; display: flex; align-items: center; justify-content: flex-start; }
+        .traffic-ticker-track { display: flex; flex: 0 0 auto; width: max-content; align-items: center; gap: 3rem; white-space: nowrap; }
+        .traffic-banner-actions { display: flex; flex-wrap: nowrap !important; align-items: center; white-space: nowrap; gap: .5rem !important; }
+        #top-traffic-banner { overflow: hidden; }
+        @media (max-width: 767px) { .traffic-banner-layout { overflow-x: auto; gap: .5rem; scrollbar-width: none; } .traffic-banner-layout::-webkit-scrollbar { display:none; } .traffic-banner-icon { display: flex; } .traffic-ticker-viewport { min-width: 180px; } .traffic-banner-actions { justify-content: flex-start; } }
         .traffic-ticker-track:not(.is-moving) { width: 100%; justify-content: center; text-align: center; }
         .traffic-ticker-track.is-moving { animation: trafficTickerMove 32s linear infinite; }
         .traffic-ticker-track.is-moving:hover { animation-play-state: paused; }
         .traffic-ticker-copy { display: inline-flex; align-items: center; gap: 3rem; padding-right: 3rem; }
         @keyframes trafficTickerMove { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-        @media (max-width: 767px) { .traffic-banner-layout { grid-template-columns: minmax(0, 1fr); gap: .5rem; } .traffic-banner-icon { display: none; } .traffic-banner-actions { justify-content: center; flex-wrap: wrap; } .traffic-ticker-track:not(.is-moving) { white-space: normal; } }
+        @media (max-width: 767px) { .traffic-ticker-track:not(.is-moving) { white-space: nowrap; } }
         @media (prefers-reduced-motion: reduce) { .traffic-ticker-track.is-moving { animation: none; } }
 
 

@@ -393,14 +393,22 @@ const defaultWisataData = [
         let kategoriList = [];
         let eventList = [];
         const DEFAULT_ROAD_CLOSURES = [
-            {
-                id: "r3",
-                area: "Jalur Wisata Malang Selatan",
-                title: "Imbauan keselamatan perjalanan: periksa kondisi kendaraan dan patuhi rambu lalu lintas.",
-                road: "Seluruh jalur wisata pesisir Malang Selatan",
-                time: "Setiap saat",
-                detail: "Pastikan rem, ban, dan bahan bakar dalam kondisi baik. Kurangi kecepatan di jalan berkelok serta ikuti arahan petugas."
-            }
+                    {
+                                "id": "r1",
+                                "area": "Kec. Sumbermanjing Wetan",
+                                "title": "Penutupan Jalur Lintas Selatan (JLS) Sendangbiru untuk Upacara Petik Laut.",
+                                "road": "Jalur JLS menuju Sendangbiru",
+                                "time": "Hari ini s/d 18.00 WIB",
+                                "detail": "Kendaraan roda 4 dari arah Turen yang hendak ke Sendangbiru dialihkan melalui rute alternatif Pasar Gedangan - Bajulmati. Ikuti arahan petugas di lapangan."
+                    },
+                    {
+                                "id": "r2",
+                                "area": "Jalur Wisata Malang Selatan",
+                                "title": "Imbauan keselamatan: waspadai jalan licin, kurangi kecepatan, dan jaga jarak aman saat melintasi jalur pesisir.",
+                                "road": "Seluruh jalur wisata pesisir Malang Selatan",
+                                "time": "Imbauan umum",
+                                "detail": "Periksa kondisi rem dan ban kendaraan, nyalakan lampu saat hujan atau berkabut, serta patuhi rambu dan arahan petugas."
+                    }
         ];
         let roadClosureList = [];
         let damriData = {};
@@ -699,7 +707,19 @@ const defaultWisataData = [
                 }
             ];
             const savedRoadClosures = localStorage.getItem('jms_road_closures');
-            roadClosureList = savedRoadClosures ? JSON.parse(savedRoadClosures) : DEFAULT_ROAD_CLOSURES.map(item => ({ ...item }));
+            if (savedRoadClosures) {
+                try {
+                    const savedItems = JSON.parse(savedRoadClosures);
+                    const existingIds = new Set(Array.isArray(savedItems) ? savedItems.map(item => item && item.id) : []);
+                    roadClosureList = (Array.isArray(savedItems) ? savedItems : []).concat(
+                        DEFAULT_ROAD_CLOSURES.filter(item => !existingIds.has(item.id)).map(item => ({ ...item }))
+                    );
+                } catch (error) {
+                    roadClosureList = DEFAULT_ROAD_CLOSURES.map(item => ({ ...item }));
+                }
+            } else {
+                roadClosureList = DEFAULT_ROAD_CLOSURES.map(item => ({ ...item }));
+            }
 
             eventList = eventList.map(ev => ({
                 ...ev,
@@ -749,7 +769,13 @@ const defaultWisataData = [
             const track = document.getElementById('traffic-ticker-track');
             const timeBadge = document.getElementById('banner-warning-time');
             if (!track || !timeBadge) return;
-            const items = roadClosureList.filter(item => item && item.title && item.area);
+            // Papan utama menampilkan tepat dua peringatan bawaan (r1 dan r2).
+            // Data peringatan lain tetap tersimpan dan dapat dikelola dari dashboard admin.
+            const priorityIds = ['r1', 'r2'];
+            const items = priorityIds
+                .map(id => roadClosureList.find(item => item && item.id === id))
+                .filter(item => item && item.title && item.area);
+
             if (!items.length) {
                 track.classList.remove('is-moving');
                 track.innerHTML = `<span id="banner-warning-title" class="line-clamp-1">${escapeHtml(trafficInfo.title)}</span>`;
@@ -757,9 +783,9 @@ const defaultWisataData = [
                 return;
             }
             const content = items.map(item => `<span class="inline-flex items-center gap-2"><strong class="text-slate-950">${escapeHtml(item.area.toUpperCase())}</strong><span>${escapeHtml(item.title)}</span><span class="opacity-90">(${escapeHtml(item.road)} · ${escapeHtml(item.time)})</span><span class="text-slate-900">•</span></span>`).join('');
-            const moving = items.length > 1;
-            track.className = `traffic-ticker-track${moving ? ' is-moving' : ''}`;
-            track.innerHTML = moving ? `<span class="traffic-ticker-copy">${content}</span><span class="traffic-ticker-copy" aria-hidden="true">${content}</span>` : `<span class="traffic-ticker-copy">${content}</span>`;
+            // Duplikasi konten menciptakan loop tanpa jeda; ticker tetap bergerak untuk satu atau dua item.
+            track.className = 'traffic-ticker-track is-moving';
+            track.innerHTML = `<span class="traffic-ticker-copy">${content}</span><span class="traffic-ticker-copy" aria-hidden="true">${content}</span>`;
             timeBadge.innerText = `${items.length} INFORMASI`;
         }
 

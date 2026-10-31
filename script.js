@@ -2596,3 +2596,56 @@ const defaultWisataData = [
         }
 
         document.addEventListener('DOMContentLoaded', () => { loadBannerContentSettings(); });
+
+/* ==========================================================
+   GALERI BANNER OTOMATIS DARI FOLDER assets/
+   Nama file mengikuti daftar aset repository pengguna.
+   Jika satu foto tidak tersedia, browser lanjut ke foto berikutnya.
+   ========================================================== */
+(function initLocalAssetSlideshows() {
+    const galleries = {
+        'home-hero-background': ['Beranda1.png', 'Beranda2.png', 'Beranda3.png'],
+        'umkm-hero-background': ['umkm1.jpeg', 'umkm2.jpeg', 'umkm3.jpeg'],
+        'wisata-hero-background': ['Wisata1.jpeg', 'Wisata2.jpeg', 'Wisata3.jpeg'],
+        'event-hero-background': ['tradisi1.jpeg', 'tradisi2.jpeg']
+    };
+    const promoGalleries = {
+        '.home-promo-economy-photo': ['Ekonomi1.jpeg', 'Ekonomi2.jpeg'],
+        '.home-promo-transport-photo': ['Damri1.jpeg', 'Damri2.jpeg', 'Damri3.jpeg']
+    };
+    const assetUrl = name => `assets/${encodeURIComponent(name)}`;
+    function startBackgroundGallery(element, names, overlay) {
+        if (!element || !names.length) return;
+        let index = 0;
+        const show = () => {
+            const image = new Image();
+            image.onload = () => {
+                element.style.backgroundImage = `${overlay}, url("${assetUrl(names[index])}")`;
+                element.style.backgroundSize = 'cover';
+                element.style.backgroundPosition = 'center';
+            };
+            image.onerror = () => {
+                index = (index + 1) % names.length;
+                if (index !== 0) show();
+            };
+            image.src = assetUrl(names[index]);
+        };
+        show();
+        if (names.length > 1) window.setInterval(() => {
+            index = (index + 1) % names.length;
+            show();
+        }, 6000);
+    }
+    function init() {
+        Object.entries(galleries).forEach(([id, names]) => {
+            const element = document.getElementById(id);
+            startBackgroundGallery(element, names, 'linear-gradient(90deg, rgba(4,35,55,.78), rgba(4,35,55,.30))');
+        });
+        Object.entries(promoGalleries).forEach(([selector, names]) => {
+            const element = document.querySelector(selector);
+            startBackgroundGallery(element, names, 'linear-gradient(115deg, rgba(5,25,35,.62), rgba(5,25,35,.40))');
+        });
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true });
+    else init();
+})();

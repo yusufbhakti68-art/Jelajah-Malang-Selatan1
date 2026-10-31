@@ -42,116 +42,7 @@
         }
     </script>
     
-    <link rel="stylesheet" href="style.css">
-    <style> body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
-        .traffic-banner-layout { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 1rem; }
-        .traffic-ticker-viewport { overflow: hidden; min-width: 0; width: 100%; display: flex; align-items: center; justify-content: center; }
-        .traffic-ticker-track { display: flex; width: max-content; align-items: center; gap: 3rem; white-space: nowrap; }
-        .traffic-ticker-track:not(.is-moving) { width: 100%; justify-content: center; text-align: center; }
-        .traffic-ticker-track.is-moving { animation: trafficTickerMove 32s linear infinite; }
-        .traffic-ticker-track.is-moving:hover { animation-play-state: paused; }
-        .traffic-ticker-copy { display: inline-flex; align-items: center; gap: 3rem; padding-right: 3rem; }
-        @keyframes trafficTickerMove { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-        @media (max-width: 767px) { .traffic-banner-layout { grid-template-columns: minmax(0, 1fr); gap: .5rem; } .traffic-banner-icon { display: none; } .traffic-banner-actions { justify-content: center; flex-wrap: wrap; } .traffic-ticker-track:not(.is-moving) { white-space: normal; } }
-        @media (prefers-reduced-motion: reduce) { .traffic-ticker-track.is-moving { animation: none; } }
-
-
-/* ===== Admin: Kelola Kecamatan ===== */
-#admin-content-kecamatan .kecamatan-delete-btn {
-    transition: background-color .2s ease, transform .2s ease;
-}
-#admin-content-kecamatan .kecamatan-delete-btn:hover {
-    transform: translateY(-1px);
-}
-#admin-content-kecamatan #kecamatan-admin-form input {
-    min-width: 0;
-    outline: none;
-    transition: border-color .2s ease, box-shadow .2s ease;
-}
-#admin-content-kecamatan #kecamatan-admin-form input:focus {
-    border-color: #0284c7;
-    box-shadow: 0 0 0 3px rgba(2, 132, 199, .12);
-}
-#admin-content-kecamatan table {
-    border-collapse: separate;
-    border-spacing: 0;
-}
-#admin-content-kecamatan thead th:first-child {
-    border-top-left-radius: .65rem;
-}
-#admin-content-kecamatan thead th:last-child {
-    border-top-right-radius: .65rem;
-}
-#admin-nav-tabs .admin-tab-btn,
-#admin-nav-tabs #adm-tab-kecamatan {
-    flex: 0 0 auto;
-}
-@media (max-width: 640px) {
-    #admin-content-kecamatan > div {
-        padding: 1rem;
-    }
-    #admin-content-kecamatan #kecamatan-admin-form button {
-        width: 100%;
-    }
-}
-
-/* Admin: pengelolaan kartu promo Beranda */
-#admin-content-promoberanda input, #admin-content-promoberanda textarea { min-width: 0; outline: none; transition: border-color .2s, box-shadow .2s; }
-#admin-content-promoberanda input:focus, #admin-content-promoberanda textarea:focus { border-color: #0284c7; box-shadow: 0 0 0 3px rgba(2,132,199,.12); }
-#admin-content-promoberanda section { min-width: 0; }
-.home-promo-card { background-size: cover; background-position: center; }
-@media (max-width: 640px) { #admin-content-promoberanda > div { padding: 1rem; } }
-
-/* Navigasi pagination untuk grid wisata dan produk UMKM */
-.pagination-btn {
-    min-width: 38px;
-    height: 38px;
-    padding: 0 11px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #cbd5e1;
-    border-radius: 10px;
-    background: #ffffff;
-    color: #334155;
-    font-size: 13px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
-}
-.pagination-btn:hover:not(:disabled) {
-    background: #e0f2fe;
-    border-color: #0284c7;
-    color: #075985;
-    transform: translateY(-1px);
-}
-.pagination-btn.active {
-    background: #036b8f;
-    border-color: #036b8f;
-    color: #ffffff;
-    box-shadow: 0 3px 8px rgba(3, 105, 161, .2);
-}
-.pagination-btn:disabled {
-    opacity: .35;
-    cursor: not-allowed;
-}
-.pagination-ellipsis {
-    padding: 0 3px;
-    color: #64748b;
-    font-weight: 700;
-}
-@media (max-width: 480px) {
-    .pagination-btn { min-width: 34px; height: 34px; padding: 0 8px; }
-}
-
-/* Upload dan preview foto kartu promo beranda */
-.promo-image-preview { width: 100%; max-height: 180px; object-fit: cover; border-radius: 10px; border: 1px solid #cbd5e1; }
-#admin-content-promoberanda input[type="file"] { max-width: 100%; }
-.home-promo-card { background-size: cover !important; background-position: center !important; }
-</style>
+    <link rel="stylesheet" href="custom.css">
     
 </head>
 <body class="text-slate-800 antialiased min-h-screen flex flex-col justify-between">
@@ -1447,7 +1338,7 @@
 
     
     <!-- JAVASCRIPT LOGIC -->
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 
 </body>
 </html>        

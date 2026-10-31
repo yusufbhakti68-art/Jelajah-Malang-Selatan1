@@ -6,7 +6,7 @@ const defaultWisataData = [
                 kategori: "Pantai",
                 harga: "Rp 15.000",
                 jam: "24 Jam",
-                img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
+                img: "assets/WIsata1.jpeg",
                 desc: "Dikenal sebagai Tanah Lot-nya Jawa Timur. Memiliki Pura Ismoyo di atas pulau karang kecil.",
                 maps: "https://maps.google.com/?q=Pantai+Balekambang+Malang",
                 isUnggulan: true,
@@ -19,7 +19,7 @@ const defaultWisataData = [
                 kategori: "Konservasi",
                 harga: "Rp 10.000 + Guide",
                 jam: "07.00 - 16.00 WIB",
-                img: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80",
+                img: "assets/WIsata2.jpeg",
                 desc: "Kawasan konservasi mangrove dan terumbu karang dengan gradasi air laut 3 warna.",
                 maps: "https://maps.google.com/?q=Pantai+3+Warna+Malang",
                 isUnggulan: true,
@@ -32,7 +32,7 @@ const defaultWisataData = [
                 kategori: "Pantai",
                 harga: "Rp 10.000",
                 jam: "24 Jam",
-                img: "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=800&q=80",
+                img: "assets/WIsata3.jpeg",
                 desc: "Sering disebut Raja Ampat-nya Malang karena gugusan pulau karang kecil.",
                 maps: "https://maps.google.com/?q=Teluk+Asmara+Malang",
                 isUnggulan: true,
@@ -45,7 +45,7 @@ const defaultWisataData = [
                 kategori: "Pantai",
                 harga: "Rp 10.000",
                 jam: "06.00 - 18.00 WIB",
-                img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+                img: "assets/WIsata1.jpeg",
                 desc: "Pantai di ujung barat dengan perbukitan Paralayang tempat sunset terbaik.",
                 maps: "https://maps.google.com/?q=Pantai+Modangan+Malang",
                 isUnggulan: false,
@@ -58,7 +58,7 @@ const defaultWisataData = [
                 kategori: "Pantai",
                 harga: "Rp 10.000",
                 jam: "24 Jam",
-                img: "https://images.unsplash.com/photo-1509233725247-49e657c54213?auto=format&fit=crop&w=800&q=80",
+                img: "assets/WIsata2.jpeg",
                 desc: "Surga bagi pecinta selancar dan perahu wisata air terjun langsung ke laut.",
                 maps: "https://maps.google.com/?q=Pantai+Lenggoksono+Malang",
                 isUnggulan: false,
@@ -71,7 +71,7 @@ const defaultWisataData = [
                 kategori: "Konservasi",
                 harga: "Rp 12.000",
                 jam: "24 Jam",
-                img: "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=800&q=80",
+                img: "assets/WIsata3.jpeg",
                 desc: "Pelabuhan nelayan terbesar berhadapan dengan Cagar Alam Pulau Sempu.",
                 maps: "https://maps.google.com/?q=Pantai+Sendangbiru+Malang",
                 isUnggulan: false,
@@ -81,79 +81,70 @@ const defaultWisataData = [
             {
                 "id": "u7",
                 "nama": "Pantai Licin",
-                "kategori": "Kuliner & Oleh-Oleh",
+                "kategori": "Pantai",
                 "desa": "Kab Malang",
                 "wa": "6281333183380",
                 "img": "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=600&q=80",
-                "desc": "Kuliner lezat di daerah Kab Malang"
+                "desc": "Pantai Licin menawarkan suasana pesisir yang tenang dengan panorama laut dan garis pantai yang cocok untuk menikmati keindahan alam."
             },
             {
                 "id": "u8",
                 "nama": "Pantai Sendiki",
-                "kategori": "Kuliner & Oleh-Oleh",
+                "kategori": "Pantai",
                 "desa": "Kab Malang",
                 "wa": "-",
                 "img": "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=600&q=80",
-                "desc": "Kuliner lezat di daerah Kab Malang"
+                "desc": "Pantai Sendiki dikenal dengan hamparan pasir dan suasana alami yang nyaman untuk bersantai serta menikmati pemandangan pantai."
             },
             {
                 "id": "u9",
                 "nama": "Pantai Tamban",
-                "kategori": "Kuliner & Oleh-Oleh",
+                "kategori": "Pantai",
                 "desa": "Kab Malang",
                 "wa": "-",
                 "img": "https://www.tempatwisata.pro/users_media/3092/gomancing-ngalam-tournamet-pantai-tamban-malang-jawa-timur-1024x681.jpg",
-                "desc": "Kuliner lezat di daerah Kab Malang"
+                "desc": "Pantai Tamban menyuguhkan panorama laut lepas dan suasana pesisir yang menarik untuk menikmati waktu liburan."
             },
             {
                 "id": "u10",
                 "nama": "Pantai Banyu Meneng",
-                "kategori": "Kuliner & Oleh-Oleh",
+                "kategori": "Pantai",
                 "desa": "Kab Malang",
                 "wa": "-",
                 "img": "https://ik.imagekit.io/tvlk/blog/2024/05/shutterstock_1921198601.jpg?tr=dpr-2%2Cw-675",
-                "desc": "Kuliner lezat di daerah Kab Malang"
+                "desc": "Pantai Banyu Meneng memiliki suasana pantai yang relatif teduh dan cocok untuk bersantai menikmati alam pesisir."
             },
             {
                 "id": "u11",
                 "nama": "Pantai Gatra",
-                "kategori": "Kuliner & Oleh-Oleh",
+                "kategori": "Pantai",
                 "desa": "Kab Malang",
                 "wa": "-",
                 "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
-                "desc": "Kuliner lezat di daerah Kab Malang"
-            },
-            {
-                "id": "u12",
-                "nama": "Toko taman ayu nganteb (TAN)",
-                "kategori": "Kuliner & Oleh-Oleh",
-                "desa": "Kab Malang",
-                "wa": "6282147548421",
-                "img": "https://cdngnfi2.sgp1.cdn.digitaloceanspaces.com/gnfi/uploads/images/2024/01/1813522024-WhatsApp-Image-2024-01-18-at-13.49.52.jpg",
-                "desc": "Pusat belanja makanan dan oleh-oleh khas daerah Nganteb, Malang."
+                "desc": "Pantai Gatra berada di kawasan konservasi dengan pemandangan alam pesisir yang asri dan suasana yang menenangkan."
             },
             {
                 "id": "u13",
                 "nama": "Pantai Mrutu",
-                "kategori": "Kuliner & Oleh-Oleh",
+                "kategori": "Pantai",
                 "desa": "Kab Malang",
                 "wa": "-",
                 "img": "https://1.bp.blogspot.com/-dnFixAJ4o8g/XbhLe3izdHI/AAAAAAAAALg/mLsvBoJBth0utl5prYl90fKW6gGH5_f5gCLcBGAsYHQ/s1600/Laut%2BBiru%2Bdan%2BOmbak%2BTenang%2Bdi%2BPantai%2BMrutu.jpg",
-                "desc": "Kuliner lezat di daerah Kab Malang"
+                "desc": "Pantai Mrutu menyajikan panorama pantai yang alami dan suasana tenang bagi pengunjung yang ingin menikmati keindahan pesisir."
             },
             {
                 "id": "u14",
                 "nama": "Pantai Jolangkung ꦥꦼꦱꦶꦱꦶꦂꦗꦺꦴꦭꦔ꧀ꦏꦸꦁ",
-                "kategori": "Kuliner & Oleh-Oleh",
+                "kategori": "Pantai",
                 "desa": "Kab Malang",
                 "wa": "-",
                 "img": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80",
-                "desc": "Kuliner lezat di daerah Kab Malang"
+                "desc": "Pantai Jolangkung menawarkan pemandangan laut khas pesisir selatan dengan suasana alam yang menarik untuk dijelajahi."
             },
             {
                 "id": "u15",
                 "nama": "Pantai Wedi Awu",
-                "kategori": "Kuliner & Oleh-Oleh",
+                "kategori": "Pantai",
                 "desa": "Kab Malang",
                 "wa": "6281333183380",
                 "img": "https://assets.promediateknologi.id/crop/0x0%3A0x0/750x500/webp/photo/p3/27/2024/01/16/Pantai-Wedi-Awu-Malang_exploremalangraya-991708302.jpg",
@@ -162,11 +153,11 @@ const defaultWisataData = [
             {
                 "id": "u16",
                 "nama": "Pantai Kondang Iwak",
-                "kategori": "Kuliner & Oleh-Oleh",
+                "kategori": "Pantai",
                 "desa": "Kab Malang",
                 "wa": "-",
                 "img": "https://sp-ao.shortpixel.ai/client/to_webp%2Cq_glossy%2Cret_img%2Cw_1000%2Ch_675/https%3A/blog.airpaz.com/wp-content/uploads/kondang-iwak_11zon_11zon.webp",
-                "desc": "Kuliner lezat di daerah Kab Malang"
+                "desc": "Pantai Wedi Awu dikenal dengan ombak dan bentang alam pesisir yang menarik, terutama bagi pencinta aktivitas pantai."
             }
         
         ];
@@ -525,6 +516,11 @@ const defaultWisataData = [
             transportButton: 'Cek Jadwal & Tarif', transportBackground: 'linear-gradient(135deg, #164e75, #0369a1)'
         };
         let homePromoImageState = { economy: '', transport: '' };
+        let homePromoRotationTimer = null;
+        const HOME_PROMO_LOCAL_IMAGES = {
+            economy: ['assets/Ekonomi1.jpeg', 'assets/Ekonomi2.jpeg'],
+            transport: ['assets/Damri1.jpeg', 'assets/Damri2.jpeg', 'assets/Damri3.jpeg']
+        };
         function getHomePromoSettings() {
             try { return { ...HOME_PROMO_DEFAULTS, ...(JSON.parse(localStorage.getItem('jms_home_promo_settings') || '{}')) }; }
             catch (_) { return { ...HOME_PROMO_DEFAULTS }; }
@@ -533,14 +529,27 @@ const defaultWisataData = [
             const map = { 'home-promo-economy-label': cfg.economyLabel, 'home-promo-economy-title': cfg.economyTitle, 'home-promo-economy-description': cfg.economyDescription, 'home-promo-economy-button': cfg.economyButton, 'home-promo-transport-label': cfg.transportLabel, 'home-promo-transport-title': cfg.transportTitle, 'home-promo-transport-description': cfg.transportDescription, 'home-promo-transport-button': cfg.transportButton };
             Object.entries(map).forEach(([id, value]) => { const el = document.getElementById(id); if (el) el.textContent = value ?? ''; });
             const cards = document.querySelectorAll('.home-promo-card');
-            const setCardBackground = (card, image, fallback) => {
+            const applyBackground = (card, image, fallback) => {
                 if (!card) return;
                 card.style.background = image
                     ? `linear-gradient(rgba(5, 25, 35, .48), rgba(5, 25, 35, .58)), url("${image}") center / cover no-repeat`
                     : fallback;
             };
-            setCardBackground(cards[0], cfg.economyImage, cfg.economyBackground || HOME_PROMO_DEFAULTS.economyBackground);
-            setCardBackground(cards[1], cfg.transportImage, cfg.transportBackground || HOME_PROMO_DEFAULTS.transportBackground);
+            // Foto pilihan admin tetap diutamakan; jika belum ada, gunakan slideshow file lokal.
+            applyBackground(cards[0], cfg.economyImage || HOME_PROMO_LOCAL_IMAGES.economy[0], cfg.economyBackground || HOME_PROMO_DEFAULTS.economyBackground);
+            applyBackground(cards[1], cfg.transportImage || HOME_PROMO_LOCAL_IMAGES.transport[0], cfg.transportBackground || HOME_PROMO_DEFAULTS.transportBackground);
+            if (homePromoRotationTimer) clearInterval(homePromoRotationTimer);
+            let economyIndex = 0, transportIndex = 0;
+            homePromoRotationTimer = setInterval(() => {
+                if (!cfg.economyImage && cards[0]) {
+                    economyIndex = (economyIndex + 1) % HOME_PROMO_LOCAL_IMAGES.economy.length;
+                    applyBackground(cards[0], HOME_PROMO_LOCAL_IMAGES.economy[economyIndex], cfg.economyBackground || HOME_PROMO_DEFAULTS.economyBackground);
+                }
+                if (!cfg.transportImage && cards[1]) {
+                    transportIndex = (transportIndex + 1) % HOME_PROMO_LOCAL_IMAGES.transport.length;
+                    applyBackground(cards[1], HOME_PROMO_LOCAL_IMAGES.transport[transportIndex], cfg.transportBackground || HOME_PROMO_DEFAULTS.transportBackground);
+                }
+            }, 5000);
         }
         function compressPromoImage(file) {
             return new Promise((resolve, reject) => {
@@ -639,6 +648,14 @@ const defaultWisataData = [
                     ][(index + hIndex) % 3]
                 })) : []
             })) : defaultWisataData;
+            // Gunakan foto lokal dari folder assets untuk enam destinasi utama.
+            const wisataLocalImages = {
+                w1: 'assets/WIsata1.jpeg', w2: 'assets/WIsata2.jpeg', w3: 'assets/WIsata3.jpeg',
+                w4: 'assets/WIsata1.jpeg', w5: 'assets/WIsata2.jpeg', w6: 'assets/WIsata3.jpeg'
+            };
+            wisataList = wisataList.map(item => wisataLocalImages[item.id]
+                ? { ...item, img: wisataLocalImages[item.id] }
+                : item);
 
             const savedResorts = localStorage.getItem('jms_resorts');
             resortList = savedResorts ? JSON.parse(savedResorts) : [];
@@ -745,9 +762,10 @@ const defaultWisataData = [
                 return;
             }
             const content = items.map(item => `<span class="inline-flex items-center gap-2"><strong class="text-slate-950">${escapeHtml(item.area.toUpperCase())}</strong><span>${escapeHtml(item.title)}</span><span class="opacity-90">(${escapeHtml(item.road)} · ${escapeHtml(item.time)})</span><span class="text-slate-900">•</span></span>`).join('');
-            const moving = items.length > 1;
-            track.className = `traffic-ticker-track${moving ? ' is-moving' : ''}`;
-            track.innerHTML = moving ? `<span class="traffic-ticker-copy">${content}</span><span class="traffic-ticker-copy" aria-hidden="true">${content}</span>` : `<span class="traffic-ticker-copy">${content}</span>`;
+            // Duplikasi konten agar ticker tetap bergerak dan berulang meskipun hanya ada 1 informasi jalan.
+            // Salinan kedua disembunyikan dari pembaca layar agar tidak dibacakan dua kali.
+            track.className = 'traffic-ticker-track is-moving';
+            track.innerHTML = `<span class="traffic-ticker-copy">${content}</span><span class="traffic-ticker-copy" aria-hidden="true">${content}</span>`;
             timeBadge.innerText = `${items.length} INFORMASI`;
         }
 
